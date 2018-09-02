@@ -1,5 +1,3 @@
-#Máquinas de Boltzmann são modelos probabilísticos (ou geradores) não supervisionados, baseados em energia. Isso significa que elas associam uma energia para cada configuração das variáveis que se quer modelar.
-
 import torch # para Deep Learning
 import torch.autograd as autograd # para autodiferenciação
 import torch.nn as nn # para montar redes neurais
