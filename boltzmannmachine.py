@@ -12,14 +12,13 @@ data = np.random.permutation(data.train.images)
 class RBM(nn.Module):
     def __init__(self, nv=28*28, nh=512, cd_steps=1):
         super(RBM, self).__init__()
-        # inicializa os parâmetros da MBR
+        
         self.W = nn.Parameter(torch.randn(nv, nh) * 0.01)
         self.bv = nn.Parameter(torch.zeros(nv))
         self.bh = nn.Parameter(torch.zeros(nh))
         self.cd_steps = cd_steps 
 
     def bernoulli(self, p):
-        # return F.relu(torch.sign(p - autograd.Variable(torch.rand(p.size()).cuda())))  
         return F.relu(torch.sign(p - autograd.Variable(torch.rand(p.size()))))     
         
     def energy(self, v):
