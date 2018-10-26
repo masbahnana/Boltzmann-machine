@@ -1,5 +1,6 @@
 import tensorflow as tf 
 import numpy as np 
+import PIL
 from tensorflow.examples.tutorials.mnist import input_data 
 
 data = input_data.read_data_sets("tmp/", one_hot=False)
@@ -78,7 +79,6 @@ rbm = RBM(cd_steps=3)
 rbm.train(X=data, lr=0.001, epochs=25)
 
 from dl_utils import tile_raster_images
-import PIL
 
 img = tile_raster_images(rbm.modelW.T,
                          img_shape=(28,28),
